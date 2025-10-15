@@ -1,4 +1,4 @@
-# header_audit
+# domain_audits
 
 A Bash script to audit HTTP security headers of web targets. Produces colorized terminal output and a Markdown report.
 
