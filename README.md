@@ -14,9 +14,11 @@ Features
 Installation
 
 # Clone the repository
-git clone https://github.com/ekomsSavior/domain_audits.git
+git clone
+'''bash
+https://github.com/ekomsSavior/domain_audits.git
 cd domain_audits
-
+'''
 # Make scripts executable
 chmod +x header_audit.sh
 chmod +x dirb_audit.sh
