@@ -1,33 +1,49 @@
-# domain_audits
+domain_audits
 
-A Bash script to audit HTTP security headers of web targets. Produces colorized terminal output and a Markdown report.
+A dual-script toolkit for auditing web domains and discovered endpoints.
+Includes:
+	•	header_audit.sh — checks HTTP security headers and grades configurations
+	•	dirb_audit.sh — crawls and inspects endpoints, HTML, and JavaScript for quick reconnaissance
 
-## Features
+Features
+	•	Run each module independently
+	•	Saves all results in reports/
+	•	Integrates automatically if both scripts are present
+	•	Works entirely from Bash (no external requirements)
 
-- Checks for presence and values of key HTTP headers (HSTS, CSP, X-Frame-Options, etc.)  
-- Generates a letter grade (A–F) based on header coverage  
-- Outputs a Markdown report under `reports/`  
-- Optional `nmap` header script integration  
+Installation
 
-## Installation & Setup
-
-```bash
 # Clone the repository
-git clone https://github.com/ekomsSavior/header_audit.git
-cd header_audit
+git clone https://github.com/ekomsSavior/domain_audits.git
+cd domain_audits
 
-# Make the script executable
+# Make scripts executable
 chmod +x header_audit.sh
+chmod +x dirb_audit.sh
 
-# (Optional) Install dependencies
-#   - curl (typically pre-installed)
-#   - nmap (for enhanced header script checks)
-```
-## Usage:
+Usage
 
-```bash
-./header_audit.sh https://target-domain.com
-```
-A colorized summary and auto-grade appear in the terminal
+1. Header Audit
 
-A full Markdown report is saved to reports/<domain>_headers.md
+Check a single domain for missing or weak HTTP headers and get an auto-grade.
+
+./header_audit.sh https://target.com
+
+Results are saved in reports/<domain>_headers.md.
+
+2. Directory / Endpoint Audit
+
+Interactively audit one or multiple URLs or a file list.
+
+./dirb_audit.sh
+
+When prompted:
+	•	Enter one or more domains or URLs separated by spaces
+	•	Or specify a file of targets using @filename.txt
+
+Artifacts (headers, HTML, JS, fingerprints) are stored in reports/dirb_audit_<timestamp>/.
+
+Notes
+	•	Use responsibly on systems you own or have permission to test.
+	•	Combine both modules for a complete surface and header security overview.
+	•	Optional tools like whatweb enhance fingerprinting but are not required.
