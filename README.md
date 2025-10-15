@@ -22,3 +22,12 @@ chmod +x header_audit.sh
 # (Optional) Install dependencies
 #   - curl (typically pre-installed)
 #   - nmap (for enhanced header script checks)
+```
+## Usage:
+
+```bash
+./header_audit.sh https://target-domain.com
+```
+A colorized summary and auto-grade appear in the terminal
+
+A full Markdown report is saved to reports/<domain>_headers.md
