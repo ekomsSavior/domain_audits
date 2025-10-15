@@ -14,31 +14,31 @@ Features
 Installation
 
 # Clone the repository
-git clone
-'''bash
-https://github.com/ekomsSavior/domain_audits.git
+```bash
+git clone https://github.com/ekomsSavior/domain_audits.git
 cd domain_audits
-'''
+```
 # Make scripts executable
+```bash
 chmod +x header_audit.sh
 chmod +x dirb_audit.sh
-
+```
 Usage
 
 1. Header Audit
 
 Check a single domain for missing or weak HTTP headers and get an auto-grade.
-
+```bash
 ./header_audit.sh https://target.com
-
+```
 Results are saved in reports/<domain>_headers.md.
 
 2. Directory / Endpoint Audit
 
 Interactively audit one or multiple URLs or a file list.
-
+```bash
 ./dirb_audit.sh
-
+```
 When prompted:
 	•	Enter one or more domains or URLs separated by spaces
 	•	Or specify a file of targets using @filename.txt
