@@ -5,8 +5,7 @@
 #|  __  |  __|   / /\ \ | |  | |  __| |  _  /  | |    |  __  |  __|| |    |  <  
 #| |  | | |____ / ____ \| |__| | |____| | \ \  | |____| |  | | |___| |____| . \ 
 #|_|  |_|______/_/    \_\_____/|______|_|  \_\  \_____|_|  |_|______\_____|_|\_\
-# Phish Hunter Pro — HTTP Security Header Auditor (Terminal + Markdown)
-# Author: ekomsSavior / Team EVA
+# HTTP Security Header Auditor (Terminal + Markdown)
 # Usage: ./header_audit.sh https://target.com
 # Output: reports/<domain>_headers.md
 set -e
@@ -51,11 +50,11 @@ timestamp=$(date --rfc-3339=seconds)
 raw_headers=$(curl -I -s -L "$target" || true)
 
 # Save raw headers & nmap output to file
-echo -e "# 🧠 Phish Hunter Pro — Security Header Audit\n" > "$outfile"
+echo -e "#Security Header Audit\n" > "$outfile"
 echo -e "Target: [$target]($target)\n" >> "$outfile"
 echo -e "Scan Timestamp: $timestamp\n" >> "$outfile"
 
-echo "## 🛰️ Raw Header Output" >> "$outfile"
+echo "## Raw Header Output" >> "$outfile"
 echo '```' >> "$outfile"
 echo "$raw_headers" >> "$outfile"
 echo '```' >> "$outfile"
@@ -88,7 +87,7 @@ headers=(
 
 echo -e "\n${BOLD}Baseline header check:${RESET}"
 # Prepare Markdown table
-echo -e "\n## 🧩 Baseline Header Check\n" >> "$outfile"
+echo -e "\n##  Baseline Header Check\n" >> "$outfile"
 echo "| Header | Present | Value |" >> "$outfile"
 echo "|--------|:------:|-------|" >> "$outfile"
 
@@ -182,5 +181,5 @@ else
 fi
 
 # Markdown recommendations
-echo -e "\n## ⚙️ Recommended Secure Values\n" >> "$outfile"
+echo -e "\n##  Recommended Secure Values\n" >> "$outfile"
 cat <<'EOT' >> "$outfile"
